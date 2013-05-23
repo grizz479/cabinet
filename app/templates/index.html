@@ -4,6 +4,11 @@
 		{% for month in calendar %}
 <!--			<h2 class="{% if loop.index == this_month %}current-{% endif %}month">{{ ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][loop.index0] }} {{ year }}</h2> -->
 			<h2 class="{% if loop.index == this_month %}current-{% endif %}month">{{ [0, 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][this_month] }} {{ year }}</h2>
+			<p class="header-links">
+				<a href="" class="previous">prev</a>
+				<a href="" class="today">Today</a>
+				<a href="" class="next">next</a>
+			</p>
 			<table class="{% if loop.index == this_month %}current-{% endif %}month">
 				<tr>
 					<th>MON</th>
@@ -32,9 +37,9 @@
 		<h3>Project Name</h3>
 		<h4>Client Name</h4>
 		<p class="msg-categories">
-			<span class="msg-todo">Todo</span>
-			<span class="msg-tasks">Tasks</span>
-			<span class="msg-invoices">Invoices</span>
+			<span class="icon msg-todo">t</span>
+			<span class="icon msg-tasks">E</span>
+			<span class="icon msg-invoices">M</span>
 		</p>
 	</li>{% endfor %}
 	</ul>

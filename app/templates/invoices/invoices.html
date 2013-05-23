@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 	<header class="content-header">
-		<h1>Invoices</h1>
+		<h1><span class="icon">M</span></h1>
 		<p class="add-link"><a href="{{ url_for('create_invoice') }}">Add Invoice</a></p>
 	</header>
 	{% with messages = get_flashed_messages() %}
@@ -15,11 +15,11 @@
 	{% endwith %}
 	{% if invoices %}
 		<ul class="invoices">
-		{% for invoice in invoices %}<li class="invoice">
+		{% for invoice in invoices %}<li class="invoice{% if invoice.status == 'Paid' %} paid{% elif invoice.status == 'Sent' %} sent{% elif invoice.status == 'Overdue' %} overdue{% else %} draft{% endif %}">
 			<p class="actions">
-				<a href="{{ url_for('view_invoice', invoice_id = invoice.id) }}">View</a> |
-				<a href="{{ url_for('edit_invoice', invoice_id = invoice.id) }}">Edit</a> |
-				<a href="{{ url_for('delete_invoice', invoice_id = invoice.id) }}">Delete</a>
+				<a href="{{ url_for('view_invoice', invoice_id = invoice.id) }}" class="icon">V</a>
+				<a href="{{ url_for('edit_invoice', invoice_id = invoice.id) }}" class="icon">E</a>
+				<a href="{{ url_for('delete_invoice', invoice_id = invoice.id) }}" class="icon">D</a>
 			</p>
 			<h3>{{ invoice.name }} // <em>{{ invoice.project.name }}</em></h3>
 			<h4>1000$</h4>

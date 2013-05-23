@@ -14,19 +14,8 @@
 
 // TYPOGRAPHY
 // ---------------------------
-	@font-face {
-		font-family: 'cabinet_iconsregular';
-		src: url('cabinet_icons-webfont.eot');
-		src: url('cabinet_icons-webfont.eot?#iefix') format('embedded-opentype'),
-				 url('cabinet_icons-webfont.woff') format('woff'),
-				 url('cabinet_icons-webfont.ttf') format('truetype'),
-				 url('cabinet_icons-webfont.svg#cabinet_iconsregular') format('svg');
-		font-weight: normal;
-		font-style: normal;
-
-	}
-	@serif: 'Georgia', 'Times New Roman', Times, sans-serif;
-	@sans: 'Open Sans', Helvetica, Arial, sans-serif;
+	@serif: 'Droid Serif', 'Georgia', 'Times New Roman', Times, sans-serif;
+	@sans: 'Droid Sans', Helvetica, Arial, sans-serif;
 	@monospace: 'Monaco', 'Courier New', monospace;
 	@icons: 'cabinet_iconsregular';
 	@baseFontSize: 16px;
@@ -37,6 +26,7 @@
 // ---------------------------
 	@bodyBg: @lighterGray;
 	@headerBg: @darkBlue;
+
 
 // TEXT COLORS
 // ---------------------------
@@ -54,6 +44,22 @@
 
 // BUTTONS
 // ---------------------------
+	.btn (@bgColor: @gray, @color: white){
+		color: @color;
+		background: @bgColor;
+		.border-radius(3px);
+		border-bottom: 2px solid darken(@bgColor, 20%);
+		padding: 0.4em 1em;
+		text-transform: uppercase;
+		.inline-block();
+
+		&:hover{
+			text-decoration: none;
+			background: darken(@bgColor, 20%);
+			border-bottom: none;
+			margin-top: 2px;
+		}
+	}
 
 
 // GRIDS
@@ -99,10 +105,18 @@
 		background: @bgColor;
 		border-left: 10px solid @containerBg;
 		border-right: 10px solid @containerBg;
-		padding: 2em 1em;
+		padding: 2.4em 1em;
 		text-align: center;
 		margin-bottom: 20px;
 	}
+
+
+// STATUS COLOR
+// ---------------------------
+	@level-0: white;
+	@level-1: @lightGray;
+	@level-2: @blue;
+	@level-3: @orange;
 
 
 
